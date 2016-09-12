@@ -5,9 +5,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 
-/**
- * Created by azueva on 01.08.2016.
- */
 public class HelperBase {
   protected WebDriver wd;
   protected WebDriverWait wait;

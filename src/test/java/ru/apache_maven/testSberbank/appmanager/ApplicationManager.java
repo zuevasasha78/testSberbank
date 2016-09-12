@@ -38,7 +38,7 @@ public class ApplicationManager {
     }
 
     wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    wait = new WebDriverWait(wd, 20);
+    wait = new WebDriverWait(wd, 10);
     wd.get("https://yandex.ru/");
     wd.manage().window().maximize();
     navigationHelper = new NavigationHelper(wd, wait);

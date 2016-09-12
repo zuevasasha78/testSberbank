@@ -1,8 +1,5 @@
 package ru.apache_maven.testSberbank.model;
 
-/**
- * Created by azueva on 09.09.2016.
- */
 public class PriceData {
   private String price;
 

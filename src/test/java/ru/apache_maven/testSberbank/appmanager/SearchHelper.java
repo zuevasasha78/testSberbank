@@ -4,17 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-/**
- * Created by azueva on 09.09.2016.
- */
 public class SearchHelper extends HelperBase {
   public SearchHelper (WebDriver wd, WebDriverWait wait){super(wd, wait);}
 
-  public static String firthElement;
+  public static String firthElement = null;
 
   public void fillManufacturer() {
     click(By.id("glf-1801946-1870091"));
@@ -26,17 +24,13 @@ public class SearchHelper extends HelperBase {
   }
 
   public void storFirthElement() {
-    try {
-      wd.findElement(By.xpath("//div[@class='serp-empty__wrapper']//div[.='Нет подходящих товаров']"));
-    } catch (NoAlertPresentException e){
-      System.out.println("Ничего не нравиться");
-    }
-    firthElement = wd.findElement(By.cssSelector("span.snippet-card__header-text.firepath-matching-node")).getText();
+    firthElement = wd.findElement
+            (By.xpath("//div[2]/div[1]/div[1]/div[3]/div/div[1]/div/h3/a/span")).getText();
   }
 
-  public void fillSearch() {
+  public void searchFirthElement() {
     type(By.id("header-search"), firthElement);
-    click(By.className("button button_size_m button_side_right button_focus_thin button_theme_normal i-bem button_js_inited button_focused_yes"));
+    click(By.xpath("html/body/div[1]/div[1]/noindex/div/div/div[2]/div/div[1]/form/span/button"));
   }
 
   public void find() {
@@ -46,9 +40,9 @@ public class SearchHelper extends HelperBase {
     type(By.id("glf-priceto-var"), price);
   }
 
-  public List<WebElement> getElementsList(){
-    List<WebElement> elements =  wd.findElements(By.className("snippet-card clearfix i-bem snippet-card_js_inited"));
-    return elements;
+  public int getElementsCount(){
+    return wd.findElements(By.xpath("//div[@class='snippet-card clearfix i-bem snippet-card_js_inited']")).size();
+
   }
 
   public String getNameSearchResult() {

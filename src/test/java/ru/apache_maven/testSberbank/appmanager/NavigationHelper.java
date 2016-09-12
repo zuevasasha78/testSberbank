@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-/**
- * Created by azueva on 01.08.2016.
- */
 public class NavigationHelper extends HelperBase {
   public NavigationHelper(WebDriver wd, WebDriverWait wait) {
     super(wd, wait);
